@@ -12,10 +12,8 @@ type MaketType struct {
 	MarketCount int32
 }
 
-type MarketTypeResponse struct {
-	Jsonrpc string
+type MarketTypeResponse struct {	
 	Result []MaketType
-	Id int32
 }
 
 //competitions definitions
@@ -30,9 +28,29 @@ type CompetitionCount struct {
 }
 
 type CompetitionsResponse struct {
-	Jsonrpc string
 	Result []CompetitionCount
-	Id int32
+}
+
+
+type MarketBook struct {
+	MarketId string
+	IsMarketDataDelayed bool
+	Status string
+	BetDelay int32
+	BspReconciled bool
+	Complete bool
+	Inplay bool
+	NumberOfWinners int32
+	NumberOfRunners int32
+	NumberOfActiveRunners int32
+	TotalMatched float32
+	TotalAvailable float32
+	CrossMatching bool
+	
+}
+
+type MarketBookResponse struct {
+	Result []MarketBook
 }
 
 func ParseMarketTypeResponse(response string) []MarketTypeResponse{
